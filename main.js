@@ -1,9 +1,12 @@
 const tmi = require('tmi.js');
 const opts = require('./lib/config')
-
+const fs = require("fs");
 
 // Create a client with our options
 const client = new tmi.client(opts);
+
+require('./lib/components/readdir')(fs)
+
 
 function onMessageHandler (target, context, msg, self) {
     
