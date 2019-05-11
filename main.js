@@ -12,6 +12,7 @@ const client = new tmi.client(opts);
  */
 
 require('./src/function/readdir')(fs)
+const rolldice = require('./src/cmd/rolldice')
 
 
 function onMessageHandler (target, context, msg, self) {
@@ -23,12 +24,9 @@ function onMessageHandler (target, context, msg, self) {
   
     // If the command is known, let's execute it
     if (commandName === '!dice') {
-      const num = method()
-      client.say(target, `You rolled a ${num}`);
-      console.log(`* Executed ${commandName} command`);
-    } else {
-      console.log(`* Unknown command ${commandName}`);
-    }
+      
+      rolldice.rolldice(client, target)
+      
   }
   
 // Register our event handlers (defined below)
