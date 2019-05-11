@@ -7,7 +7,6 @@ const collection = require('./src/utils/Collection')
 const client = new tmi.client(opts);
 
 const read = require('./src/function/readdir')
-const rolldice = require('./src/cmd/rolldice')
 
 read.readdir(fs, collection)
 
@@ -23,11 +22,9 @@ function onMessageHandler (target, context, msg, self) {
 
     let cmd = collection.get(command.slice(prefix.length));
     if (cmd) {
-      console.log(cmd.help.name)
+      console.log(`Command ${cmd.help.name} Executed`)
       cmd.run(client, target, args)
       
-
-  
     }
 }
 // Register our event handlers (defined below)
