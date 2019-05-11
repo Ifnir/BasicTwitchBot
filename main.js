@@ -1,11 +1,17 @@
 const tmi = require('tmi.js');
-const opts = require('./lib/config')
+const opts = require('./src/config')
 const fs = require("fs");
 
 // Create a client with our options
 const client = new tmi.client(opts);
 
-require('./lib/components/readdir')(fs)
+
+/**
+ * @TODO 
+ * Read file and for file in files require them when call them by commandname
+ */
+
+require('./src/function/readdir')(fs)
 
 
 function onMessageHandler (target, context, msg, self) {
