@@ -1,34 +1,40 @@
 const tmi = require('tmi.js');
 const opts = require('./src/config')
 const fs = require("fs");
+const collection = require('./src/utils/Collection')
 
 // Create a client with our options
 const client = new tmi.client(opts);
 
-
-/**
- * @TODO 
- * Read file and for file in files require them when call them by commandname
- */
-
-require('./src/function/readdir')(fs)
+const read = require('./src/function/readdir')
 const rolldice = require('./src/cmd/rolldice')
 
+read.readdir(fs, collection)
 
 function onMessageHandler (target, context, msg, self) {
     
     if (self) { return; } // Ignore messages from the bot
+
+    let prefix = "1"
+    let msgArray = msg.split(/\s+/g);
+    let args = msgArray.slice(1);
   
-    // Remove whitespace from chat message
-    const commandName = msg.trim();
-  
+    let command = msgArray[0];
+
+    let cmd = collection.get(command.slice(prefix.length));
     // If the command is known, let's execute it
-    if (commandName === '!dice') {
+    if (cmd) {
+      console.log(cmd.name)
+      cmd.run(client, target, args)
       
-      rolldice.rolldice(client, target)
-      
-  }
+      // if(cmd === 'dice'){
+      //   rolldice.rolldice(client, target)
+      //   console.log(`* Executed ${command}`);
+      //   } 
+      // }
   
+    }
+}
 // Register our event handlers (defined below)
 client.on('message', onMessageHandler);
 client.on('connected', onConnectedHandler);
