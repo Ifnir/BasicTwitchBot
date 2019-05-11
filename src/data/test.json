@@ -1,0 +1,17 @@
+
+    {
+        "id": 1,
+        "title": "Test Quiz",
+        "description": "Quiz",
+        "meta_tags": [
+        "Test"
+        ],
+
+        "questions" :
+            {
+            "text": "Write answer or wait for the question to expire",
+            "answers": "answer",
+            "time": "30"
+            }
+        
+    }
