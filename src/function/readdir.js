@@ -12,22 +12,15 @@ class func {
             }
     
             console.log(`Loads ${file.length} CMDS`);
+
+        
     
-            // for (let cmdfile of file) {
-            //     console.log(`${cmdfile} loaded`)
-            //     let command = require(`./../cmd/${cmdfile}`)
-                
-                
-    
-            //     collection.set(command.help.name, command)
-            // }
-            file.forEach(function(f, i) {
-                let props = require(`./../cmd/${f}`);
-                console.log(`${i + 1}: ${f} loaded!`);
-               
-                collection.set(props.help.name, props);
-                  
-            });
+            for (const cmdfile of file) {
+                console.log(`${cmdfile} loaded`)
+                let command = require(`./../cmd/${cmdfile}`)
+
+                 collection.set(command.help.name, command)
+            }
         })
     }
 }

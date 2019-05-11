@@ -15,23 +15,18 @@ function onMessageHandler (target, context, msg, self) {
     
     if (self) { return; } // Ignore messages from the bot
 
-    let prefix = "1"
+    let prefix = "!"
     let msgArray = msg.split(/\s+/g);
     let args = msgArray.slice(1);
   
     let command = msgArray[0];
 
     let cmd = collection.get(command.slice(prefix.length));
-    // If the command is known, let's execute it
     if (cmd) {
-      console.log(cmd.name)
+      console.log(cmd.help.name)
       cmd.run(client, target, args)
       
-      // if(cmd === 'dice'){
-      //   rolldice.rolldice(client, target)
-      //   console.log(`* Executed ${command}`);
-      //   } 
-      // }
+
   
     }
 }
