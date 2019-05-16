@@ -1,16 +1,23 @@
 const fs = require('fs')
+const regex = require('./../utils/Regex')
 
 module.exports.run = async (client, target, args) => {
     
-    fs.readFile('./src/data/test.json', function (err, data) {
-        if(err) console.error(err)
-        let obj = JSON.parse(data)
-        console.log(obj.questions.text)
-        
-        return client.say(target, `${obj.questions.text}`)
+    const file = await new Promise((res, rej) => {
+        fs.readFile('./src/data/test.json', function (err, data) {
+                if(err) rej(err)
+
+                const obj = JSON.parse(data);
+           
+                obj.q.forEach(function(el) {
+                    console.log(el.text)
+                })
+
+            });
+    });
+    
  
-    })
-  
+
 }
 
 module.exports.help = {

@@ -6,12 +6,19 @@
         "meta_tags": [
         "Test"
         ],
-
-        "questions" :
+        "q" :[
             {
-            "text": "Write answer or wait for the question to expire",
-            "answers": "answer",
-            "time": "30"
+                "text": "Write answer or wait for the question to expire",
+                "answers": "answer",
+                "time": 30,
+                "asked": false
+            },
+            {
+                "text": "Write answer or wait for the question to expire",
+                "answers": "answer",
+                "time": 30,
+                "asked": false
             }
-        
+        ]
+            
     }
