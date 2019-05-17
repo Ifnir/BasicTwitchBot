@@ -23,7 +23,7 @@ function onMessageHandler (target, context, msg, self) {
     let cmd = collection.get(command.slice(prefix.length));
     if (cmd) {
       console.log(`Command ${cmd.help.name} Executed`)
-      cmd.run(client, target, args)
+      cmd.run(client, target, args, msg)
       
     }
 }
