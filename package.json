@@ -1,6 +1,6 @@
 {
   "name": "basictwitchbot",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Basic bot for twitch. My channel is mrifnir",
   "main": "main.js",
   "scripts": {
