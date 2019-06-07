@@ -1,16 +1,15 @@
 {
-  "name": "wowquiz",
-  "version": "1.0.0",
-  "description": "Wow Quiz bot for twitch",
+  "name": "basictwitchbot",
+  "version": "1.0.1",
+  "description": "Basic bot for twitch",
   "main": "main.js",
   "scripts": {
-    "test": "standard --fix && node main.js",
-    "fix": "standard",
+    "test": "standard && node main.js && exit 1",
+    "fix": "standard --fix && node main.js && exit 1",
     "start": "node -r dotenv/config main.js"
   },
   "keywords": [
-    "wow",
-    "quiz",
+    "basic",
     "bot",
     "twitch"
   ],

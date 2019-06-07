@@ -1,6 +1,6 @@
 
 class Func {
-  readdir (fs, collection) {
+  readdir (fs, map) {
     fs.readdir('./src/cmd/', (err, files) => {
       if (err) console.error(err)
 
@@ -17,7 +17,7 @@ class Func {
         console.log(`${cmdfile} loaded`)
         let command = require(`./../cmd/${cmdfile}`)
 
-        collection.set(command.help.name, command)
+        map.set(command.help.name, command)
       }
     })
   }

@@ -1,14 +1,16 @@
 const Tmi = require('tmi.js')
 const opts = require('./config')
 const fs = require('fs')
-const collection = require('./src/utils/collection')
 
 // Create a client with our options
 const client = new Tmi.Client(opts)
 
+// https://javascript.info/map-set-weakmap-weakset
+const map = new Map()
+
 const read = require('./src/function/readdir')
 
-read.readdir(fs, collection)
+read.readdir(fs, map)
 
 function onMessageHandler (target, context, msg, self) {
   if (self) { return } // Ignore messages from the bot
@@ -19,7 +21,7 @@ function onMessageHandler (target, context, msg, self) {
 
   let command = msgArray[0]
 
-  let cmd = collection.get(command.slice(prefix.length))
+  let cmd = map.get(command.slice(prefix.length))
   if (cmd) {
     console.log(`Command ${cmd.help.name} Executed`)
     cmd.run(client, target, args, msg)
