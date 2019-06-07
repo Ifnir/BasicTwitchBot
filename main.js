@@ -12,7 +12,8 @@ require('./app/lib/readdir')(map, './app/src/cmd/', './../src/cmd/', 'CMD')
 
 function onMessageHandler (target, context, msg, self) {
   if (self) { return } // Ignore messages from the bot
-  if (jobs.async_job(client, target)) { return }
+  jobs.async_job(client, target)
+  
   let prefix = '!'
   let msgArray = msg.split(/\s+/g)
   let args = msgArray.slice(1)
