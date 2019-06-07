@@ -4,7 +4,9 @@
   "description": "Wow Quiz bot for twitch",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "standard --fix && node main.js",
+    "fix": "standard",
+    "start": "node -r dotenv/config main.js"
   },
   "keywords": [
     "wow",
@@ -15,6 +17,10 @@
   "author": "ifnir",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "8.0.0",
     "tmi.js": "^1.4.2"
+  },
+  "devDependencies": {
+    "standard": "12.0.1"
   }
 }

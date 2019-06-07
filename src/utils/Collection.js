@@ -3,8 +3,11 @@
  * @extends {Map}
  */
 class Collection extends Map {
-  constructor(iterable) {
-    super(iterable);
+  constructor (iterable) {
+    /**
+     * Used to access and call functions on an object's parent @extends {Map}
+     */
+    super(iterable)
 
     /**
      * Cached array for the `array()` method - will be reset to `null` whenever `set()` or `delete()` are called
@@ -12,7 +15,7 @@ class Collection extends Map {
      * @type {?Array}
      * @private
      */
-    Object.defineProperty(this, '_array', { value: null, writable: true, configurable: true });
+    Object.defineProperty(this, '_array', { value: null, writable: true, configurable: true })
 
     /**
      * Cached array for the `keyArray()` method - will be reset to `null` whenever `set()` or `delete()` are called
@@ -20,19 +23,19 @@ class Collection extends Map {
      * @type {?Array}
      * @private
      */
-    Object.defineProperty(this, '_keyArray', { value: null, writable: true, configurable: true });
+    Object.defineProperty(this, '_keyArray', { value: null, writable: true, configurable: true })
   }
 
-  set(key, val) {
-    this._array = null;
-    this._keyArray = null;
-    return super.set(key, val);
+  set (key, val) {
+    this._array = null
+    this._keyArray = null
+    return super.set(key, val)
   }
 
-  delete(key) {
-    this._array = null;
-    this._keyArray = null;
-    return super.delete(key);
+  delete (key) {
+    this._array = null
+    this._keyArray = null
+    return super.delete(key)
   }
 
   /**
@@ -41,9 +44,9 @@ class Collection extends Map {
    * itself. If you don't want this caching behaviour, use `Array.from(collection.values())` instead.
    * @returns {Array}
    */
-  array() {
-    if (!this._array || this._array.length !== this.size) this._array = Array.from(this.values());
-    return this._array;
+  array () {
+    if (!this._array || this._array.length !== this.size) this._array = Array.from(this.values())
+    return this._array
   }
 
   /**
@@ -52,12 +55,10 @@ class Collection extends Map {
    * itself. If you don't want this caching behaviour, use `Array.from(collection.keys())` instead.
    * @returns {Array}
    */
-  keyArray() {
-    if (!this._keyArray || this._keyArray.length !== this.size) this._keyArray = Array.from(this.keys());
-    return this._keyArray;
+  keyArray () {
+    if (!this._keyArray || this._keyArray.length !== this.size) this._keyArray = Array.from(this.keys())
+    return this._keyArray
   }
-
-  
 }
 
-module.exports = new Collection;
+module.exports = new Collection()
