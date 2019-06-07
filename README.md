@@ -21,9 +21,9 @@ npm i
 - standard
 
 ### NPM Command
-To check for formatting with Standard Style  
-- npm run-script check
-To auto fix with Standard Style  
-- npm run-script fix
-To start the bot  
-- npm start
+
+- "npm run-script check" - To check for formatting with Standard Style  
+
+- "npm run-script fix" - To auto fix with Standard Style  
+
+- "npm start" - To start the bot  
