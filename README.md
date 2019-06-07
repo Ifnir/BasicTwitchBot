@@ -1,6 +1,7 @@
 # Basic Bot For Twitch
 ```
-Basic bot for twitch. Description under construction. 
+This is a simple application for creating a twitch bot. It loads multiply files from 
+cmd directory as commands, which can be called through twitch chat with !.
 ```
 ## Install
 ```
@@ -8,10 +9,10 @@ npm i
 ```
 ## Task List
 ### What you can make
-- [ ] Add restful API client to handle stack
-- [ ] Make a SPA to handle the bot
-- [ ] Create ACL
-- [ ] setInterval to loop functions
+- [ ] Implement restful API client to handle stack
+- [ ] Make a SPA website to handle the bot
+- [ ] Create ACL for twitch roles
+- [x] setInterval to loop functions
 
 ### Dependencies
 - tmi
