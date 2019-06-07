@@ -1,6 +1,6 @@
 const Tmi = require('tmi.js')
 const opts = require('./config')
-
+const jobs = require('./app/lib/jobs')
 // Create a client with our options
 const client = new Tmi.Client(opts)
 
@@ -8,11 +8,11 @@ const client = new Tmi.Client(opts)
 const map = new Map()
 
 // Read files
-require('./app/lib/readdir')(map)
+require('./app/lib/readdir')(map, './app/src/cmd/', './../src/cmd/', 'CMD')
 
 function onMessageHandler (target, context, msg, self) {
   if (self) { return } // Ignore messages from the bot
-
+  if (jobs.async_job(client, target)) { return }
   let prefix = '!'
   let msgArray = msg.split(/\s+/g)
   let args = msgArray.slice(1)
@@ -24,6 +24,8 @@ function onMessageHandler (target, context, msg, self) {
     console.log(`Command ${cmd.help.name} Executed`)
     cmd.run(client, target, args, msg)
   }
+
+  
 }
 // Register our event handlers (defined below)
 client.on('message', onMessageHandler)
