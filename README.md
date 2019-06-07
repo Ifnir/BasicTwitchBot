@@ -1,6 +1,6 @@
 # Basic Bot For Twitch
 ```
-Basic bot for twitch.
+Basic bot for twitch. Description under construction. 
 ```
 ## Install
 ```
@@ -10,6 +10,8 @@ npm i
 ### What you can make
 - [ ] Add restful API client to handle stack
 - [ ] Make a SPA to handle the bot
+- [ ] Create ACL
+- [ ] setInterval to loop functions
 
 ### Dependencies
 - tmi

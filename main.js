@@ -8,7 +8,7 @@ const client = new Tmi.Client(opts)
 const map = new Map()
 
 // Read files
-require('./src/function/readdir')(map)
+require('./app/lib/readdir')(map)
 
 function onMessageHandler (target, context, msg, self) {
   if (self) { return } // Ignore messages from the bot

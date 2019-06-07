@@ -5,7 +5,7 @@ const fs = require('fs')
  */
 
 function readdir (map) {
-  fs.readdir('./src/cmd/', (err, files) => {
+  fs.readdir('./app/src/cmd/', (err, files) => {
     if (err) console.error(err)
     // finds every file with extension .js in folder
     let file = files.filter(f => f.split('.').pop() === 'js')
@@ -19,7 +19,7 @@ function readdir (map) {
 
     for (const cmdfile of file) {
       console.log(`${cmdfile} loaded`)
-      let command = require(`./../cmd/${cmdfile}`)
+      let command = require(`./../src/cmd/${cmdfile}`)
 
       map.set(command.help.name, command)
     }
