@@ -1,13 +1,13 @@
 {
   "name": "basictwitchbot",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Basic bot for twitch. My channel is mrifnir",
   "main": "main.js",
   "scripts": {
     "check": "standard && node -r dotenv/config main.js && exit 1",
     "fix": "standard --fix && node -r dotenv/config main.js && exit 1",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node -r dotenv/config main.js"
+    "start": "nodemon -r dotenv/config main.js"
   },
   "keywords": [
     "basic",
